@@ -1,0 +1,46 @@
+/*
+ * Breakpoints definitions
+ * For smartphones the size considered was the iPhone 4
+ * For tablets the size considered was the iPad mini
+ */
+media_queries = {
+  mobile  : "only screen and (max-width: 767px)",
+  mobile-portrait: "only screen and (max-width: 767px) and (orientation: portrait)",
+  mobile-landscape: "only screen and (max-width: 767px) and (orientation: landscape)",
+  tablet  : "only screen and (min-width: 768px) and (max-width: 1024px)",
+  tablet-portrait: "only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)",
+  tablet-landscape: "only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)",
+  print: "print",
+  desktop: "only screen and (min-width: 1024px)"
+}
+
+/*
+ * This function will inject breakpoint
+ *
+ * Example of usage: (the + is necessary when calling block mixins)
+ *     +for_breakpoint(mobile)
+ *        .hide-for-mobile
+ *        display none
+ *
+ * Assuming that 'mobile' was defined as 'only screen and (max-width: 600px)',
+ * when compiled will generate css like this:
+ *
+ *     @media only screen and (max-width: 600px) {
+ *        .hide-for-mobile {
+ *         display: none;
+ *         }
+ *     }
+ *
+ * You can also specify multiple breakpoints:
+ *  Ex:
+ *     +for_breakpoint(mobile tablet)
+ *        ...
+ */
+for_breakpoint(breakpoints)
+  conditions = ()
+  for breakpoint in breakpoints
+    push(conditions, media_queries[breakpoint])
+  conditions = join(", ", conditions)
+  @media conditions
+    {block}
+
