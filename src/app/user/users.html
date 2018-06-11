@@ -16,9 +16,14 @@
     </div>
     <div class="card-footer">
       <div class="flex-row flex-end">
-        <span class="glyphicon glyphicon-pencil item pointer" title="Editar"></span>
+        <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
         <span class="glyphicon glyphicon-trash item pointer" title="Excluir"></span>
       </div>
     </div>
   </div>
 </div>
+<div class="btn-add" data-toggle="modal" data-target="#myModal" ng-click="vm.setSelectedUser(user)">
+  <span title="Adicionar novo usuário">+</span>
+</div>
+<!-- Modal Add User -->
+<add-user-modal user="vm.selectedUser" ok-fn="vm.saveUser"></add-user-modal>
