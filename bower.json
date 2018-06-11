@@ -3,9 +3,19 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "^1.5.0",
-    "angular-ui-router": "^0.3.1"
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
   }
 }

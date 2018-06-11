@@ -1,7 +1,7 @@
-function header() {
+function headerMenu() {
   const directive = {
     restrict: 'E',
-    templateUrl: 'app/components/header/header.html',
+    templateUrl: 'app/components/headerMenu/headerMenu.html',
     replace: true,
     controller: HeaderController,
     controllerAs: 'vm',
@@ -11,7 +11,7 @@ function header() {
   return directive;
 }
 
-angular.module('app').directive('header', header);
+angular.module('app').directive('headerMenu', headerMenu);
 HeaderController.$inject = [];
 
 function HeaderController() {

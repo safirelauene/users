@@ -1,0 +1,24 @@
+<div class="cards">
+  <div ng-repeat="user in vm.users | orderBy: 'name'" class="card">
+    <div class="card-title">
+      <img class="avatar" src="https://saasjusttodrive.blob.core.windows.net/profile/4ec291c4-faf3-4b04-9de7-644cef5295ef.null">
+      <span class="name">{{user.name}}</span>
+    </div>
+    <div class="card-content">
+      <div class="flex-row">
+        <span class="glyphicon glyphicon-envelope item" aria-hidden="true"></span>
+        <span class="item">{{user.email}}</span>
+      </div>
+      <div class="flex-row">
+        <span class="glyphicon glyphicon-earphone item" aria-hidden="true"></span>
+        <span class="item">{{user.phone}}</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="flex-row flex-end">
+        <span class="glyphicon glyphicon-pencil item pointer" title="Editar"></span>
+        <span class="glyphicon glyphicon-trash item pointer" title="Excluir"></span>
+      </div>
+    </div>
+  </div>
+</div>

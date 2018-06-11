@@ -20,8 +20,12 @@
 
 
   <body ng-app="app">
-    <header></header>
-    <ui-view></ui-view>
+    <div class="main-content">
+      <header-menu></header-menu>
+      <main class="content">
+        <ui-view></ui-view>
+      </main>
+    </div>
   </body>
 
   <!-- build:js({.tmp,src}) scripts/vendor.js -->
