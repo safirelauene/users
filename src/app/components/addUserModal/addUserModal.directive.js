@@ -20,7 +20,6 @@ function AddUserModal() {
 }
 
 AddUserModalController.$inject = [];
-
 function AddUserModalController() {
   var ctrl = this;
 
@@ -33,4 +32,3 @@ function AddUserModalController() {
 }
 
 angular.module('app').directive('addUserModal', AddUserModal);
-AddUserModal.$inject = [];

@@ -15,9 +15,12 @@
       </div>
     </div>
     <div class="card-footer">
-      <div class="flex-row flex-end">
-        <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
-        <span class="glyphicon glyphicon-trash item pointer" title="Excluir"></span>
+      <div class="flex-row space-between">
+        <span class="glyphicon glyphicon-list pointer" title="Ver log" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#logModal"></span>
+        <div class="flex-row">
+          <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
+          <span class="glyphicon glyphicon-trash item pointer" title="Excluir"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -27,3 +30,5 @@
 </div>
 <!-- Modal Add User -->
 <add-user-modal user="vm.selectedUser" ok-fn="vm.saveUser"></add-user-modal>
+<!-- Modal Log User -->
+<log-modal user="vm.selectedUser"></log-modal>

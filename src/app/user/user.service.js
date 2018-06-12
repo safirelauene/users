@@ -1,4 +1,5 @@
 function UserService() {
+
   const users = [
     {
       "id": 1,
@@ -73,15 +74,27 @@ function UserService() {
   ];
 
   const getUsers = () => {
-    return users;
+    return users.map((user)=>{
+      return new User(user)
+    });
   };
 
+  const getUserById = (id) => {
+    return users.find(user => user.id === id)
+  }
+
   const saveUser = (user) => {
-    return users.push(new User(user));
+    if(user.id){
+      var _user = getUserById(user.id)
+      _user = new User(user)
+      _user.addLog('editado');
+    } else {
+      users.push(new User(user));
+    }
   };
 
   const getLog = (id) => {
-
+    return getUserById(user.id).log
   };
 
   const UserService = {

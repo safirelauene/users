@@ -1,0 +1,22 @@
+.log-area
+  display: flex
+  flex-direction: column
+  &:before
+    content: ""
+    position: absolute
+    left: 20px
+    width: 2px
+    height: 100%
+    top: 0
+    background: $LIGHT-GRAY
+  .log-item
+    display: flex
+    align-items: center
+    padding-top: 10px
+    padding-bottom: 10px
+    .circle
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      background-color: $LIGHT-GRAY
+      margin-right: 15px
