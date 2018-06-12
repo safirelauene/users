@@ -73,10 +73,19 @@ function UserService() {
     }
   ];
 
+  // function Init(){
+  //   this.users = users.map((user)=>{
+  //     return new User(user)
+  //   });
+  // }
+  //
+  // Init();
+
   const getUsers = () => {
-    return users.map((user)=>{
+    this.users = users.map((user)=>{
       return new User(user)
     });
+    return this.users;
   };
 
   const getUserById = (id) => {
@@ -93,12 +102,21 @@ function UserService() {
     }
   };
 
+  const deleteUser = (id) => {
+    this.users.forEach((user, index)=>{
+      if(user.id === id ) {
+        this.users.splice(index, 1);
+      }
+    })
+  }
+
   const getLog = (id) => {
     return getUserById(user.id).log
   };
 
   const UserService = {
     saveUser         : saveUser,
+    deleteUser       : deleteUser,
     getUsers         : getUsers,
     getLog           : getLog
   };

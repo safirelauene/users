@@ -10,6 +10,10 @@ function UserController(UserService) {
     UserService.saveUser(user);
   }
 
+  vm.deleteUser = () => {
+    UserService.deleteUser(vm.selectedUser.id);
+  }
+
   function Init() {
     vm.users = UserService.getUsers();
     vm.selectedUser;

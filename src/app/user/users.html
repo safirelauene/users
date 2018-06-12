@@ -19,7 +19,7 @@
         <span class="glyphicon glyphicon-list pointer" title="Ver log" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#logModal"></span>
         <div class="flex-row">
           <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
-          <span class="glyphicon glyphicon-trash item pointer" title="Excluir"></span>
+          <span class="glyphicon glyphicon-trash item pointer" title="Excluir" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#modalConfirm"></span>
         </div>
       </div>
     </div>
@@ -32,3 +32,5 @@
 <add-user-modal user="vm.selectedUser" ok-fn="vm.saveUser"></add-user-modal>
 <!-- Modal Log User -->
 <log-modal user="vm.selectedUser"></log-modal>
+<!-- Modal Confirm Delete -->
+<modal-confirm action="vm.deleteUser"></modal-confirm>
