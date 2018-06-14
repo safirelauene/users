@@ -13,8 +13,10 @@ function AddUserModal() {
     bindToController: true
   }
 
-  function AddUserModalLink($scope) {
-
+  function AddUserModalLink(ctrl) {
+    angular.element('#myModal').on('show.bs.modal', function (e) {
+      ctrl.addUserForm.$setPristine();
+    })
   }
   return directive;
 }
@@ -24,8 +26,11 @@ function AddUserModalController() {
   var ctrl = this;
 
   ctrl.confirmOperation = () => {
-    if (ctrl.okFn != undefined) {
-      ctrl.okFn(ctrl.user);
+    if(ctrl.addUserForm.$valid){
+      if (ctrl.okFn != undefined) {
+        ctrl.okFn(ctrl.user);
+        angular.element('#myModal').modal('hide')
+      }
     }
   };
 

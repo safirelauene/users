@@ -6,24 +6,33 @@
         <h4 class="modal-title" id="myModalLabel">Adicionar Usuário</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <ng-form name="addUserForm">
           <div class="form-group">
             <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputName" placeholder="Nome" ng-model="ctrl.user.name">
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Nome" ng-model="ctrl.user.name" required>
+            <p class="error" ng-show="addUserForm.name.$invalid && !addUserForm.name.$pristine">
+              Campo obrigatório.
+            </p>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="ctrl.user.email">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" name="name" placeholder="Email" ng-model="ctrl.user.email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+            <p class="error" ng-show="addUserForm.email.$error.required && !addUserForm.email.$pristine">
+              Campo obrigatório.
+            </p>
+            <p class="error" ng-show="addUserForm.email.$error.email && !addUserForm.email.$pristine">
+              Email inválido.
+            </p>
           </div>
           <div class="form-group">
             <label for="exampleInputPhone">Telefone</label>
-            <input type="tezt" class="form-control" id="exampleInputPhone" placeholder="Telefone" ng-model="ctrl.user.phone">
+            <input type="tezt" class="form-control" id="exampleInputPhone" placeholder="Telefone" ng-model="ctrl.user.phone" >
           </div>
-        </form>
+        </ng-form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ctrl.confirmOperation()">Salvar</button>
+        <button type="submit" class="btn btn-primary" ng-click="ctrl.confirmOperation()" ng-disabled="addUserForm.$invalid">Salvar</button>
       </div>
     </div>
   </div>

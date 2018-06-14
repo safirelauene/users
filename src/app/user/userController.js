@@ -13,7 +13,7 @@ function UserController(UserService) {
   vm.deleteUser = () => {
     UserService.deleteUser(vm.selectedUser.id);
   }
-
+  
   function Init() {
     vm.users = UserService.getUsers();
     vm.selectedUser;
