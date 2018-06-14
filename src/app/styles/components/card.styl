@@ -3,6 +3,8 @@
   flex-wrap: wrap
   justify-content: flex-start
   .card
+    display: flex;
+    flex-direction: column;
     margin-top: 15px
     margin-bottom: 15px
     margin-left: 15px;
@@ -11,8 +13,6 @@
     background-color: $WHITE;
     padding: 15px
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
-    // &:first-child
-    //   margin-top: 0
     +for_breakpoint(mobile)
       width: 100%
     +for_breakpoint(tablet-portrait)
@@ -28,3 +28,5 @@
       .name
         width: 100%
         margin-left: 10px
+    .card-content
+      height: 100%

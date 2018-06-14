@@ -7,9 +7,9 @@
       </div>
       <div class="modal-body">
         <div class="log-area" >
-          <div class="log-item" ng-repeat="log in ctrl.user.log">
+          <div class="log-item" ng-repeat="log in ctrl.logs | orderBy:'$index':true">
             <div class="circle"></div>
-            <span>{{log.date}} - Usuário {{log.action}}</span>
+            <span>{{log.date}} - Usuário {{log.user.name}} foi {{log.action}}</span>
           </div>
         </div>
       </div>

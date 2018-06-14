@@ -1,9 +1,8 @@
-function LogModal() {
+function LogModal(LogService) {
   const directive = {
     restrict: 'E',
     replace: true,
     scope: {
-      user: '='
     },
     templateUrl: 'app/components/logModal/logModal.html',
     controller: LogModalController,
@@ -13,14 +12,17 @@ function LogModal() {
   }
 
   function LogModalLink($scope) {
-
+    angular.element('#logModal').on('show.bs.modal', function (e) {
+      $scope.ctrl.logs = angular.copy(LogService.getLogs());
+      $scope.$apply();
+    })
   }
   return directive;
 }
 
-LogModalController.$inject = [];
+LogModal.$inject = ['LogService'];
 
-function LogModalController() {
+function LogModalController(LogService) {
   var ctrl = this;
 
 }

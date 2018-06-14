@@ -1,4 +1,4 @@
-function UserService() {
+function UserService(LogService) {
 
   const users = [
     {
@@ -73,16 +73,9 @@ function UserService() {
     }
   ];
 
-  // function Init(){
-  //   this.users = users.map((user)=>{
-  //     return new User(user)
-  //   });
-  // }
-  //
-  // Init();
-
   const getUsers = () => {
     this.users = users.map((user)=>{
+      LogService.addLog(new User(user), 'criado');
       return new User(user)
     });
     return this.users;
@@ -96,31 +89,29 @@ function UserService() {
     if(user.id){
       var _user = getUserById(user.id)
       _user = new User(user)
-      _user.addLog('editado');
+      LogService.addLog(_user, 'editado');
     } else {
-      users.push(new User(user));
+      this.users.push(new User(user));
+      LogService.addLog(new User(user), 'criado');
     }
   };
 
   const deleteUser = (id) => {
     this.users.forEach((user, index)=>{
       if(user.id === id ) {
+        LogService.addLog(user, 'deletado');
         this.users.splice(index, 1);
       }
     })
   }
 
-  const getLog = (id) => {
-    return getUserById(user.id).log
-  };
-
   const UserService = {
     saveUser         : saveUser,
     deleteUser       : deleteUser,
-    getUsers         : getUsers,
-    getLog           : getLog
+    getUsers         : getUsers
   };
 
   return UserService;
 }
 angular.module('app').factory('UserService', UserService);
+UserService.$inject = ['LogService'];

@@ -12,7 +12,7 @@ function ModalConfirm() {
     bindToController: true
   }
 
-  function ModalConfirmLink($scope) {
+  function ModalConfirmLink() {
 
   }
   return directive;

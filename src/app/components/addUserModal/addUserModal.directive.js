@@ -13,9 +13,9 @@ function AddUserModal() {
     bindToController: true
   }
 
-  function AddUserModalLink(ctrl) {
+  function AddUserModalLink($scope) {
     angular.element('#myModal').on('show.bs.modal', function (e) {
-      ctrl.addUserForm.$setPristine();
+      $scope.ctrl.addUserForm.$setPristine();
     })
   }
   return directive;

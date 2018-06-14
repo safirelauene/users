@@ -1,3 +1,8 @@
+<div class="flex-row flex-end">
+  <div data-toggle="modal" data-target="#logModal">
+    <span class="glyphicon glyphicon-list pointer" title="Ver log"></span> <span>Ver log</span>
+  </div>
+</div>
 <div class="cards">
   <div ng-repeat="user in vm.users | orderBy: 'name'" class="card">
     <div class="card-title">
@@ -15,12 +20,9 @@
       </div>
     </div>
     <div class="card-footer">
-      <div class="flex-row space-between">
-        <span class="glyphicon glyphicon-list pointer" title="Ver log" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#logModal"></span>
-        <div class="flex-row">
-          <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
-          <span class="glyphicon glyphicon-trash item pointer" title="Excluir" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#modalConfirm"></span>
-        </div>
+      <div class="flex-row flex-end">
+        <span class="glyphicon glyphicon-pencil item pointer" title="Editar" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#myModal"></span>
+        <span class="glyphicon glyphicon-trash item pointer" title="Excluir" ng-click="vm.setSelectedUser(user)" data-toggle="modal" data-target="#modalConfirm"></span>
       </div>
     </div>
   </div>
